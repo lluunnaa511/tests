@@ -6,15 +6,15 @@ import json
 
 
 class ConnectWiKi:
-    def __init__(self, username, password):
+    def __init__(self):
         self.url = "https://wiki.navercorp.com/rest/api/content"
-        self.username = username
-        self.pwd = password
+        self.username = 'NB99315'
+        self.password = 'qmqm135!'
 
     def UpdateLabels(self, data, pageid):
         url = self.url + '/' + pageid + '/label'
 
-        auth = HTTPBasicAuth(self.username, self.pwd)
+        auth = HTTPBasicAuth(self.username, self.password)
 
         headers = {
             "Accept": "application/json",
@@ -38,7 +38,7 @@ class ConnectWiKi:
         else:
             url = self.url + "/" + id
 
-        auth = HTTPBasicAuth(self.username, self.pwd)
+        auth = HTTPBasicAuth(self.username, self.password)
 
         headers = {
             "Accept": "application/json"
@@ -58,7 +58,7 @@ class ConnectWiKi:
         url = self.url + "?title=" + title + "&spaceKey=" + spaceKey
         url = url.replace(" ", "%20")
 
-        auth = HTTPBasicAuth(self.username, self.pwd)
+        auth = HTTPBasicAuth(self.username, self.password)
 
         headers = {
             "Accept": "application/json"
@@ -77,7 +77,7 @@ class ConnectWiKi:
     def postContent(self, data):
         url = self.url
 
-        auth = HTTPBasicAuth(self.username, self.pwd)
+        auth = HTTPBasicAuth(self.username, self.password)
 
         headers = {
             "Accept": "application/json",
@@ -98,7 +98,7 @@ class ConnectWiKi:
     def deleteContent(self, id):
         url = self.url + '/' + id
 
-        auth = HTTPBasicAuth(self.username, self.pwd)
+        auth = HTTPBasicAuth(self.username, self.password)
 
         response = requests.request(
             "DELETE",
@@ -111,7 +111,7 @@ class ConnectWiKi:
     def postAttachment(self, id, files):
         url = self.url + "/" + id + "/child/attachment"
 
-        auth = HTTPBasicAuth(self.username, self.pwd)
+        auth = HTTPBasicAuth(self.username, self.password)
 
         headers = {
             "Accept": "application/json",
